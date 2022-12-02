@@ -1,0 +1,62 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Do not alter this block (unless you're familiar with LaTeX
+\documentclass{article}
+\usepackage[total={6.5in,8.75in}, top=1.5in, left=2in, right=2in, bottom=1.5in]{geometry}
+\usepackage{amsmath,amsthm,amssymb,amsfonts, fancyhdr, color, comment, graphicx, environ}
+\usepackage{mathtools}
+\usepackage{commath}
+\usepackage{xcolor}
+\usepackage{mdframed}
+\usepackage[shortlabels]{enumitem}
+\usepackage{indentfirst}
+\usepackage{hyperref}
+\usepackage{parskip}
+\usepackage{setspace}
+\usepackage{svg}
+\usepackage{minted}
+\usepackage{todonotes}
+\usepackage{devam}
+
+\pagestyle{fancy}
+
+\lhead{\varName}
+\rhead{\varClassName} 
+\chead{\textbf{\varTitle}}
+
+\begin{document}
+
+    \setlength{\parindent}{0pt}
+    \noindent
+
+    \include{title.tex}
+
+    \begin{section}{Problem 1}
+
+        \begin{problem}{1}
+            Why is this proof not true?
+        \end{problem}
+
+        \begin{solution}{a}
+            \begin{draft}
+                Let's suppose it's true, oh shit it's not.
+
+                Boom proof!
+            \end{draft}
+
+            \begin{proposition}
+                Given something, we say that it is true.
+            \end{proposition}
+
+            \begin{dproof}
+                Let us suppose that this is true. Given that it is true, then the statement thing must follow. Since it does not follow, we can conclude by contradiction that given something, it is not true. QED.
+            \end{dproof}
+
+
+        \end{solution}
+    \end{section}
+
+    
+
+
+
+\end{document}

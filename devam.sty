@@ -1,0 +1,94 @@
+%
+% Variables
+%
+\newcommand{\varClassName}[0]{TEST 320 - 2022W1}
+\newcommand{\varTitle}[0]{Homework}
+\newcommand{\varName}{Devam Sisodraker}
+\newcommand{\varIdNumber}{123456789}
+
+%
+% Shortcuts
+%
+\newcommand{\continued}{\textit{continued on next page... } \newpage}
+\newcommand{\eqdef}{\mathrel{\mathop:}=}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+
+%
+% Horizontal Line
+% 
+\newcommand{\hr}{\par\vspace{-.5\ht\strutbox}\noindent\hrulefill\par}
+
+%
+% Problem (env)
+%
+\newenvironment{problem}[2][Problem]
+    { \vspace{0.25cm} \begin{mdframed}[backgroundcolor=gray!10] \textbf{#1 #2} \\}
+    { \end{mdframed} }
+
+%
+% Solution (env)
+%
+\newenvironment{solution}[2][Solution]
+{\large \textbf{#1 (#2)}. \\ \normalsize }
+{ }
+
+%
+% Draft (env)
+%
+\definecolor{draftblue}{rgb}{0,0,1}
+\newenvironment{draft}{\color{draftblue}}{}
+
+%
+% Proof (env)
+%
+\newenvironment{dproof}[1][Proof]
+{ \textbf{#1}.  }
+{ \qedsymbol }
+
+%
+% Proposition (env)
+%
+\newenvironment{proposition}[1][Proposition]
+{ \textbf{#1}.  }
+{ }
+
+%
+% Recall (env)
+%
+\newenvironment{recall}[1][Recall]
+{ \textbf{#1}.  }
+{ }
+
+%
+% Definition (env)
+%
+\newenvironment{definition}[1][Definition]
+{ \textbf{#1}.  }
+{ }
+
+%
+% Lemma (env)
+%
+\newenvironment{dlemma}[1][Lemma]
+{ \textbf{#1}.  }
+{ }
+
+%
+% Counter Example (env)
+%
+\newenvironment{cexample}[1][Counter Example]
+{ \textbf{#1}.  }
+{ }
+
+%
+% Counter Example (env)
+%
+\newenvironment{dcase}[1][Case]
+{ \textbf{#1}.  }
+{ }
+
+\setcounter{secnumdepth}{0}
