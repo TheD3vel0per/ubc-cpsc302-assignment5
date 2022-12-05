@@ -1,0 +1,22 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{o}{\PYGZgt{}\PYGZgt{}}\PYG{+w}{ }\PYG{n}{DevamSisodraker\PYGZus{}4d}
+
+\PYG{n+nb}{ans}\PYG{+w}{ }\PYG{p}{=}\PYG{+w}{ }
+
+\PYG{+w}{  }\PYG{n}{Figure}\PYG{+w}{ }\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{+w}{ }\PYG{n}{with}\PYG{+w}{ }\PYG{n+nb}{properties}\PYG{p}{:}
+
+\PYG{+w}{      }\PYG{n}{Number}\PYG{p}{:}\PYG{+w}{ }\PYG{l+m+mi}{1}
+\PYG{+w}{        }\PYG{n}{Name}\PYG{p}{:}\PYG{+w}{ }\PYG{l+s}{\PYGZsq{}\PYGZsq{}}
+\PYG{+w}{       }\PYG{n}{Color}\PYG{p}{:}\PYG{+w}{ }\PYG{p}{[}\PYG{l+m+mf}{0.9400}\PYG{+w}{ }\PYG{l+m+mf}{0.9400}\PYG{+w}{ }\PYG{l+m+mf}{0.9400}\PYG{p}{]}
+\PYG{+w}{    }\PYG{n}{Position}\PYG{p}{:}\PYG{+w}{ }\PYG{p}{[}\PYG{l+m+mi}{584}\PYG{+w}{ }\PYG{l+m+mi}{595}\PYG{+w}{ }\PYG{l+m+mi}{560}\PYG{+w}{ }\PYG{l+m+mi}{420}\PYG{p}{]}
+\PYG{+w}{       }\PYG{n}{Units}\PYG{p}{:}\PYG{+w}{ }\PYG{l+s}{\PYGZsq{}pixels\PYGZsq{}}
+
+\PYG{+w}{  }\PYG{n}{Show}\PYG{+w}{ }\PYG{n+nb}{all}\PYG{+w}{ }\PYG{n+nb}{properties}
+
+
+\PYG{n}{lambda\PYGZus{}k}\PYG{+w}{ }\PYG{p}{=}
+
+\PYG{+w}{    }\PYG{l+m+mf}{2.9820}
+
+\PYG{o}{\PYGZgt{}\PYGZgt{}}\PYG{+w}{ }
+\end{Verbatim}
