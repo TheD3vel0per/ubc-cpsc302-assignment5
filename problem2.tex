@@ -1,0 +1,42 @@
+\begin{section}{Problem 2}
+    \begin{problem}{2}
+        \begin{enumerate}[(a)]
+            \item Download from the assignment webpage the file {\tt J\_GS.m}. In your {\sc Matlab} command line, run the command: {\tt J\_GS(100);} \\
+            %\begin{verbatim}
+            %J_GS(100); 
+            %\end{verbatim}
+            Include in your assignment solution the convergence graph that you are seeing. This is a linear system with the two-dimensional Laplacian of size $10,000 \times 10,000$ (we have $n=100, n^2=10,000$), and we are plotting the norm of the relative residual after 10,000 iterations for Jacobi and Gauss-Seidel. There is no reason to be impressed with this graph; convergence here is slow. But we are going to see  the effect of using SOR.
+            \item Given the eigenvalues of the Laplacian in the slides, show that the optimal SOR parameter can be expressed as
+            $$ \omega_{\rm opt} = \frac{2}{1+\sin \left( \frac{\pi}{n+1} \right)}.$$
+            \item
+            Modify the  {\sc Matlab} function so that in addition to the Jacobi and Gauss-Seidel graphs (for the same matrix) a convergence plot for the SOR method is included as well. Use the same initial guess (the zero vector) and the same stopping criterion: $\frac{\| \rr_k \|_2}{\| \bb \|_2} < 10^{-6}$. 
+            
+            {\underline {Tip}:} You should be seeing an {\em extremely dramatic} improvement in convergence. If you are not seeing such an improvement, then you must have done something wrong.
+            \item Explain your results. 
+        \end{enumerate}
+    \end{problem}
+
+    \begin{solution}{a}
+        \todo{insert image a}
+    \end{solution}
+
+    \newpage
+    
+    \begin{solution}{b}
+        \todo{find proof in book}
+    \end{solution}
+
+    \newpage
+    
+    \begin{solution}{c}
+        \todo{insert image c}
+        \todo{fix graph and compare}
+    \end{solution}
+
+    \newpage
+    
+    \begin{solution}{d}
+        \todo{write some bs explanation after you see a, b, c}
+    \end{solution}
+
+\end{section}
