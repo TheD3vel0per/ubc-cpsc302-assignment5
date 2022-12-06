@@ -1,5 +1,6 @@
 function J_GS(n)
 close all
+gcf
 % Apply a stationary method to a linear system involving the n^2-by-n^2 
 % Laplacian 
 
@@ -35,4 +36,4 @@ end
 hold on
 semilogy(resvecGS,'r');     % plot relative residual norm for Gauss-Seidel
 legend('Jacobi','Gauss-Seidel')
-
+saveas(gcf, "DevamSisodraker_2a.jpg", "jpg");

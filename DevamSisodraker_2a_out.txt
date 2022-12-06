@@ -1,0 +1,15 @@
+>> J_GS(100)
+
+ans = 
+
+  Figure (1) with properties:
+
+      Number: 1
+        Name: ''
+       Color: [0.9400 0.9400 0.9400]
+    Position: [584 595 560 420]
+       Units: 'pixels'
+
+  Show all properties
+
+>>

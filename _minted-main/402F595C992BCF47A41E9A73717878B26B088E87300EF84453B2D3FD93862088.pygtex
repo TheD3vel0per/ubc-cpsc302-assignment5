@@ -1,0 +1,41 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{function}\PYG{+w}{ }\PYG{n+nf}{J\PYGZus{}GS}\PYG{p}{(}n\PYG{p}{)}
+\PYG{n+nb}{close}\PYG{+w}{ }\PYG{n+nb}{all}
+\PYG{n+nb}{gcf}
+\PYG{c}{\PYGZpc{} Apply a stationary method to a linear system involving the n\PYGZca{}2\PYGZhy{}by\PYGZhy{}n\PYGZca{}2 }
+\PYG{c}{\PYGZpc{} Laplacian }
+
+\PYG{n}{A}\PYG{p}{=}\PYG{n}{delsq}\PYG{p}{(}\PYG{n}{numgrid}\PYG{p}{(}\PYG{l+s}{\PYGZsq{}S\PYGZsq{}}\PYG{p}{,}\PYG{n}{n}\PYG{o}{+}\PYG{l+m+mi}{2}\PYG{p}{));}
+\PYG{n}{D}\PYG{p}{=}\PYG{n+nb}{diag}\PYG{p}{(}\PYG{n+nb}{diag}\PYG{p}{(}\PYG{n}{A}\PYG{p}{));}\PYG{+w}{   }\PYG{c}{\PYGZpc{} M=D for Jacovi}
+\PYG{n}{E}\PYG{p}{=}\PYG{n+nb}{tril}\PYG{p}{(}\PYG{n}{A}\PYG{p}{);}\PYG{+w}{         }\PYG{c}{\PYGZpc{} M=E for Gauss\PYGZhy{}Seidel}
+\PYG{n}{itermax}\PYG{p}{=}\PYG{l+m+mi}{10000}\PYG{p}{;}\PYG{+w}{    }\PYG{c}{\PYGZpc{} maximum number of iterations}
+\PYG{n}{resvecJ}\PYG{p}{=}\PYG{n+nb}{zeros}\PYG{p}{(}\PYG{n}{itermax}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{);}\PYG{+w}{  }\PYG{c}{\PYGZpc{} allocate initial space for Jacobi residual norm vector }
+\PYG{n}{resvecGS}\PYG{p}{=}\PYG{n+nb}{zeros}\PYG{p}{(}\PYG{n}{itermax}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{);}\PYG{+w}{ }\PYG{c}{\PYGZpc{} allocate initial space for Gauss\PYGZhy{}Seidel residual vector }
+
+\PYG{c}{\PYGZpc{} Jacobi}
+\PYG{n}{xJ}\PYG{p}{=}\PYG{n+nb}{zeros}\PYG{p}{(}\PYG{n}{n}\PYGZca{}\PYG{l+m+mi}{2}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{);}
+\PYG{n}{b}\PYG{p}{=}\PYG{n}{A}\PYG{o}{*}\PYG{n+nb}{ones}\PYG{p}{(}\PYG{n}{n}\PYGZca{}\PYG{l+m+mi}{2}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{);}\PYG{+w}{   }\PYG{c}{\PYGZpc{} generate a solution of all 1s and a right\PYGZhy{}hand side}
+\PYG{n}{nb}\PYG{p}{=}\PYG{n+nb}{norm}\PYG{p}{(}\PYG{n}{b}\PYG{p}{);}
+\PYG{n}{r}\PYG{p}{=}\PYG{n}{b}\PYG{p}{;}
+\PYG{k}{for}\PYG{+w}{ }\PYG{n+nb}{i}\PYG{p}{=}\PYG{l+m+mi}{1}\PYG{p}{:}\PYG{l+m+mi}{10000}
+\PYG{+w}{    }\PYG{n}{resvecJ}\PYG{p}{(}\PYG{n+nb}{i}\PYG{p}{)=}\PYG{n+nb}{norm}\PYG{p}{(}\PYG{n}{r}\PYG{p}{)}\PYG{o}{/}\PYG{n}{nb}\PYG{p}{;}\PYG{+w}{  }\PYG{c}{\PYGZpc{} relative residual norm}
+\PYG{+w}{    }\PYG{k}{if}\PYG{+w}{ }\PYG{n}{resvecJ}\PYG{p}{(}\PYG{n+nb}{i}\PYG{p}{)}\PYG{o}{\PYGZlt{}}\PYG{l+m+mf}{1e\PYGZhy{}6}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{break}\PYG{p}{,}\PYG{k}{end}\PYG{+w}{  }\PYG{c}{\PYGZpc{} terminate loop if stopping criterion is satisfied}
+\PYG{+w}{    }\PYG{n}{xJ}\PYG{p}{=}\PYG{n}{xJ}\PYG{o}{+}\PYG{n}{D}\PYG{o}{\PYGZbs{}}\PYG{n}{r}\PYG{p}{;}\PYG{+w}{              }\PYG{c}{\PYGZpc{} next iterate}
+\PYG{+w}{    }\PYG{n}{r}\PYG{p}{=}\PYG{n}{b}\PYG{o}{\PYGZhy{}}\PYG{n}{A}\PYG{o}{*}\PYG{n}{xJ}\PYG{p}{;}\PYG{+w}{               }\PYG{c}{\PYGZpc{} update residual}
+\PYG{k}{end}
+\PYG{n+nb}{semilogy}\PYG{p}{(}\PYG{n}{resvecJ}\PYG{p}{);}\PYG{+w}{          }\PYG{c}{\PYGZpc{} plot relative residual norm for Jacobi}
+
+\PYG{c}{\PYGZpc{} Gauss\PYGZhy{}Seidel}
+\PYG{n}{xGS}\PYG{p}{=}\PYG{n+nb}{zeros}\PYG{p}{(}\PYG{n}{n}\PYGZca{}\PYG{l+m+mi}{2}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{);}
+\PYG{n}{r}\PYG{p}{=}\PYG{n}{b}\PYG{p}{;}
+\PYG{k}{for}\PYG{+w}{ }\PYG{n+nb}{i}\PYG{p}{=}\PYG{l+m+mi}{1}\PYG{p}{:}\PYG{l+m+mi}{10000}
+\PYG{+w}{    }\PYG{n}{resvecGS}\PYG{p}{(}\PYG{n+nb}{i}\PYG{p}{)=}\PYG{n+nb}{norm}\PYG{p}{(}\PYG{n}{r}\PYG{p}{)}\PYG{o}{/}\PYG{n}{nb}\PYG{p}{;}\PYG{+w}{ }\PYG{c}{\PYGZpc{} relative residual norm}
+\PYG{+w}{    }\PYG{k}{if}\PYG{+w}{ }\PYG{n}{resvecGS}\PYG{p}{(}\PYG{n+nb}{i}\PYG{p}{)}\PYG{o}{\PYGZlt{}}\PYG{l+m+mf}{1e\PYGZhy{}6}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{break}\PYG{p}{,}\PYG{k}{end}\PYG{+w}{  }\PYG{c}{\PYGZpc{} terminate loop if stopping criterion is satisfied}
+\PYG{+w}{    }\PYG{n}{xGS}\PYG{p}{=}\PYG{n}{xGS}\PYG{o}{+}\PYG{n}{E}\PYG{o}{\PYGZbs{}}\PYG{n}{r}\PYG{p}{;}\PYG{+w}{            }\PYG{c}{\PYGZpc{} next iterate}
+\PYG{+w}{    }\PYG{n}{r}\PYG{p}{=}\PYG{n}{b}\PYG{o}{\PYGZhy{}}\PYG{n}{A}\PYG{o}{*}\PYG{n}{xGS}\PYG{p}{;}\PYG{+w}{              }\PYG{c}{\PYGZpc{} update residual}
+\PYG{k}{end}
+\PYG{n+nb}{hold}\PYG{+w}{ }\PYG{n}{on}
+\PYG{n+nb}{semilogy}\PYG{p}{(}\PYG{n}{resvecGS}\PYG{p}{,}\PYG{l+s}{\PYGZsq{}r\PYGZsq{}}\PYG{p}{);}\PYG{+w}{     }\PYG{c}{\PYGZpc{} plot relative residual norm for Gauss\PYGZhy{}Seidel}
+\PYG{n+nb}{legend}\PYG{p}{(}\PYG{l+s}{\PYGZsq{}Jacobi\PYGZsq{}}\PYG{p}{,}\PYG{l+s}{\PYGZsq{}Gauss\PYGZhy{}Seidel\PYGZsq{}}\PYG{p}{)}
+\PYG{n+nb}{saveas}\PYG{p}{(}\PYG{n+nb}{gcf}\PYG{p}{,}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}DevamSisodraker\PYGZus{}2a.jpg\PYGZdq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}jpg\PYGZdq{}}\PYG{p}{);}
+\end{Verbatim}
