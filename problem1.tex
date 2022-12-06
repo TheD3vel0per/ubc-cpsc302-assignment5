@@ -10,9 +10,7 @@
         \ ,
         $$
         and suppose we are required to solve $A \xx=\bb$, where $\bb$ is an arbitrary right-hand side vector. Clearly, solving a $2
-        \times 2$ linear system using a stationary scheme is an utterly ridiculous idea,
-        but the following is helpful in understanding
-            more about convergence of stationary methods.
+        \times 2$ linear system using a stationary scheme is an utterly ridiculous idea, but the following is helpful in understanding more about convergence of stationary methods.
         \begin{enumerate}[(a)]
             \item Find the spectral radius of the Jacobi and Gauss-Seidel iteration matrices and the asymptotic rate of convergence for these two schemes, namely $-\log_{10} \rho(T)$, where $\rho(T)$ denotes the spectral radius of the corresponding iteration matrix, $T$. 
             \item How much faster does Gauss-Seidel converge compared to Jacobi for a fixed reduction in the relative residual norm, $\frac{\| \rr_k \|_2}{\| \bb \|_2}$, in terms of iteration counts?
@@ -56,9 +54,14 @@
         \end{align*}
         \continued
         Now let us calculate the eigenvalues of $T_\text{Jacobi}$ to obtain the spectral radius.
-        \todo{calculate the eigenvalues of $T_\text{Jacobi}$ here}
         \begin{align*}
-            todo
+            \det \left( T_\text{Jacobi} - I \lambda \right) &= 0 \\
+            \begin{vmatrix}
+                -\lambda & \frac{1}{2} \\
+                \frac{1}{2} & -\lambda \\
+            \end{vmatrix} &= 0 \\
+            \lambda^2 - \frac{1}{4} &= 0 \\
+            \lambda &= \pm \frac{1}{2}
         \end{align*}
         We know that the largest absolute eigenvalue is $\frac{1}{2}$.
         \begin{align*}
@@ -66,14 +69,69 @@
         \end{align*}
         Now that we have a value for $\rho \left( D^{-1} \right)$, we can calculate the asymptotic rate of convergence for the Jacobi iteration matrix of $A$ to be the following. \textit{Note: The following results were calculated using Matlab}.
         \begin{align*}
-            - \log_{10} \rho \left( D^{-1} \right) = - \log_{10} \left( \frac{1}{2} \right) \approx 0.3010
+            - \log_{10} \rho \left( D^{-1} \right) = - \log_{10} \left( \frac{1}{2} \right) \approx \textbf{0.3010}
         \end{align*}
         We have now calculated the asymptotic rate of convergence for the Jacobi iteration matrix of $A$. Now let us calculate the asymptotic rate of convergence and the spectral radius for the Gauss-Seidel iteration matrix of $A$.
-        \todo{finish this part here, after you finish the Jacobi part}
         \begin{align*}
-            thing
+            E &= \begin{pmatrix}
+                2 & 0 \\
+                -1 & 2
+            \end{pmatrix} & 
+            E^{-1} &= \frac{1}{2 \cdot 2 - 0 \cdot (-1)} \begin{pmatrix}
+                2 & 0 \\
+                1 & 2
+            \end{pmatrix} = \begin{pmatrix}
+                1/2 & 0 \\
+                1/4 & 1/2
+            \end{pmatrix}
         \end{align*}
-        $0.6021$ for rate of convergence 
+        Since we now have a value for $E^{-1}$ we can now calculate the iteration matrix.
+        \begin{align*}
+            T_\text{GS} &= I - E^{-1} A \\
+            &= \begin{pmatrix}
+                1 & 0 \\
+                0 & 1 \\
+            \end{pmatrix}
+            - \begin{pmatrix}
+                1/2 & 0 \\
+                1/4 & 1/2
+            \end{pmatrix}
+            \begin{pmatrix}
+                2 & -1 \\
+                -1 & 2 \\        
+            \end{pmatrix} \\
+            &= \begin{pmatrix}
+                1 & 0 \\
+                0 & 1 \\
+            \end{pmatrix}
+            - \begin{pmatrix}
+                1 & -1/2 \\
+                0 & 3/4 \\
+            \end{pmatrix} \\
+            &= \begin{pmatrix}
+                0 & 1/2 \\
+                0 & 1/4 \\
+            \end{pmatrix} \\
+        \end{align*}
+        \continued
+        Now that we have a value for $T_\text{GS}$ let us calculate its eigenvalues.
+        \begin{align*}
+            \det \left( T_\text{GS} - I \lambda \right) &= 0 \\
+            \begin{vmatrix}
+                -\lambda & \frac{1}{2} \\
+                0 & 1/4 -\lambda \\
+            \end{vmatrix} &= 0 \\
+            -\lambda \cdot \left( \frac{1}{4} - \lambda \right) - \frac{1}{2} \cdot 0 &= 0 \\
+            \lambda &= 0, \frac{1}{4}
+        \end{align*}
+        We know that the largest absolute eigenvalue is $\frac{1}{4}$.
+        \begin{align*}
+            \rho \left( E^{-1} \right) = \lambda_1 = \frac{1}{4}
+        \end{align*}
+        Now let us calculate the asymptotic rate of convergence.
+        \begin{align*}
+            - \log_{10} \rho \left( E^{-1} \right) = - \log_{10} \left( \frac{1}{4} \right) \approx \textbf{0.6021}
+        \end{align*}
     \end{solution}
 
     \newpage
