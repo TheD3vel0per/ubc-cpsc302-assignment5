@@ -1,5 +1,6 @@
 function J_GS(n)
 close all
+hold on
 % Apply a stationary method to a linear system involving the n^2-by-n^2 
 % Laplacian 
 
@@ -9,6 +10,7 @@ E=tril(A);         % M=E for Gauss-Seidel
 itermax=10000;    % maximum number of iterations
 resvecJ=zeros(itermax,1);  % allocate initial space for Jacobi residual norm vector 
 resvecGS=zeros(itermax,1); % allocate initial space for Gauss-Seidel residual vector 
+resvecSOR=zeros(itermax,1); % allocate initial space for Gauss-Seidel residual vector 
 
 % Jacobi
 xJ=zeros(n^2,1);
@@ -32,7 +34,20 @@ for i=1:10000
     xGS=xGS+E\r;            % next iterate
     r=b-A*xGS;              % update residual
 end
-hold on
 semilogy(resvecGS,'r');     % plot relative residual norm for Gauss-Seidel
-legend('Jacobi','Gauss-Seidel')
+
+% SOR
+xSOR=zeros(n^2,1);
+r=b;
+for i=1:10000
+    wOpt = 2 / (1 + sin(pi / (n + 1)));
+    resvecSOR(i)=norm(r)/nb; % relative residual norm
+    if resvecSOR(i)<1e-6, break,end  % terminate loop if stopping criterion is satisfied
+    xSOR=xSOR+wOpt*((1 - wOpt)*D + wOpt*E)\r;            % next iterate
+    r=b-A*xSOR;              % update residual
+end
+semilogy(resvecSOR,'g');     % plot relative residual norm for Gauss-Seidel
+legend('Jacobi','Gauss-Seidel', 'SOR')
+hold off;
+saveimage(fig, 'J_GS_out.png')
 
