@@ -76,10 +76,10 @@
     \newpage
     
     \begin{solution}{b}
-        \todo{bullshit}
+        While we can start to discern the original image when $r = 16$, it is still possible to notice various obvious abnormalities in the image produced (including various lines and inconsistencies around the bottom of the image). Therefore I choose $r = 32$ to be (in my subjective opinion) to be "acceptable" since it clearly shows us a very close depiction of the original image.
     \end{solution}
 
     \begin{solution}{c}
-        \todo{bullshit}
+        Since the amount of significant singular values of a matrix effectively determines what its "rank" is, then we only require space to store the $32$ column vectors of $U$ and $V$ ($32$ vectors each) that are associated with the $32$ singular values (as dictated by the value of $r$). Thus it costs $32 \cdot (480 + 500 + 1) = 31392$ "units" of storage versus the original image which costs $480^2 + 500^2 + 480 = 480880$ "units" of storage. When $r = 32$ we use around $\frac{480880}{31392} \approx 15$ times less storage.
     \end{solution}
 \end{section}
