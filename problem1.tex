@@ -143,21 +143,29 @@
     \newpage
 
     \begin{solution}{c}
-        We know that the SOR iteration matrix $T_\text{SOR}$ is the following by definition.
+        We know that the following given an SOR iteration.
         \begin{align*}
-            I - \omega ((1 - \omega)D + \omega E)^{-1} A
+            M = \frac{1 - \omega}{\omega} D + E
         \end{align*}
-        Thus we can compose it as the following function.
+        Let us substitute $M$ into the function $T_\text{SOR}$ where $T_\text{SOR} : \R^{n \times n} \rightarrow \R^{n \times n}$.
         \begin{align*}
-            \boldmath{W}(\omega) &= I - \frac{1}{\omega} ((1 - \omega)D + \omega E) A
+            T_\text{SOR} (\omega) &= I - M^{-1} A \\
+            &= I - \left( \frac{1 - \omega}{\omega} D + E \right)^{-1} A
         \end{align*}
-        \todo{write this up properly}
+        Thus we have the following function.
+        \begin{align*}
+            T_\text{SOR} &= I - \left( \frac{1 - \omega}{\omega} D + E \right)^{-1} A
+        \end{align*}
     \end{solution}
 
     \newpage
 
     \begin{solution}{d}
-        \todo{use page 235 ch7 from textbook to solve this}
+        From the textbook (\textit{page 235}) we know the following.
+        \begin{align*}
+            \rho = \omega_{opt} - 1
+        \end{align*}
+        Since we already have a value for the thing
     \end{solution}
 
     \newpage 
