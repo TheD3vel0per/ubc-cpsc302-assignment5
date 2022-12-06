@@ -1,0 +1,21 @@
+clear;
+load mandrill;
+colormap("gray");
+image(X);
+[U,S,V] = svd(X);
+
+close all;
+for i = 1:1:6 
+    r = 2^i;
+    U_trunc = U(1:r,1:r);
+    S_trunc = S(1:r,1:r);
+    V_trunc = V(1:r,1:r);
+
+    gcf
+    hold on;
+    X = U_trunc * S_trunc * transpose(V_trunc);
+    image(X);
+    colormap("gray");
+    saveas(gcf, strcat("DevamSisodraker_5a_", string(r), ".jpg"), "jpg");
+    hold off;
+end

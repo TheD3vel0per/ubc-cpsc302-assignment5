@@ -1,0 +1,27 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nb}{clear}\PYG{p}{;}
+\PYG{n}{load}\PYG{+w}{ }\PYG{l+s}{mandrill}\PYG{p}{;}
+\PYG{n+nb}{colormap}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}gray\PYGZdq{}}\PYG{p}{);}
+\PYG{p}{[}\PYG{n}{U}\PYG{p}{,}\PYG{n}{S}\PYG{p}{,}\PYG{n}{V}\PYG{p}{]}\PYG{+w}{ }\PYG{p}{=}\PYG{+w}{ }\PYG{n+nb}{svd}\PYG{p}{(}\PYG{n}{X}\PYG{p}{);}
+\PYG{n+nb}{image}\PYG{p}{(}\PYG{n}{U}\PYG{o}{*}\PYG{n}{S}\PYG{o}{*}\PYG{n}{V}\PYG{o}{\PYGZsq{}}\PYG{p}{);}
+
+\PYG{n}{close}\PYG{+w}{ }\PYG{l+s}{all}\PYG{p}{;}
+\PYG{k}{for}\PYG{+w}{ }\PYG{n+nb}{i}\PYG{+w}{ }\PYG{p}{=}\PYG{+w}{ }\PYG{l+m+mi}{1}\PYG{p}{:}\PYG{l+m+mi}{1}\PYG{p}{:}\PYG{l+m+mi}{6}\PYG{+w}{ }
+\PYG{+w}{    }\PYG{n}{r}\PYG{+w}{ }\PYG{p}{=}\PYG{+w}{ }\PYG{l+m+mi}{2}\PYGZca{}\PYG{n+nb}{i}\PYG{p}{;}
+
+\PYG{+w}{    }\PYG{n}{dims}\PYG{+w}{ }\PYG{p}{=}\PYG{+w}{ }\PYG{n+nb}{size}\PYG{p}{(}\PYG{n}{X}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{S\PYGZus{}trunc}\PYG{+w}{ }\PYG{p}{=}\PYG{+w}{ }\PYG{n+nb}{diag}\PYG{p}{(}\PYG{n}{S}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{S\PYGZus{}trunc}\PYG{p}{((}\PYG{n}{r}\PYG{+w}{ }\PYG{o}{+}\PYG{+w}{ }\PYG{l+m+mi}{1}\PYG{p}{):}\PYG{n+nb}{min}\PYG{p}{(}\PYG{n}{dims}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{),}\PYG{+w}{ }\PYG{n}{dims}\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{p}{)))}\PYG{+w}{ }\PYG{p}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n}{S\PYGZus{}trunc}\PYG{+w}{ }\PYG{p}{=}\PYG{+w}{ }\PYG{n+nb}{diag}\PYG{p}{(}\PYG{n}{S\PYGZus{}trunc}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{S\PYGZus{}trunc}\PYG{p}{(}\PYG{n}{dims}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{),}\PYG{+w}{ }\PYG{n}{dims}\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{p}{))}\PYG{+w}{ }\PYG{p}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}
+
+\PYG{+w}{    }\PYG{n}{gcf}
+\PYG{+w}{    }\PYG{l+s}{hold}\PYG{+w}{ }\PYG{l+s}{on}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n}{Xout}\PYG{+w}{ }\PYG{p}{=}\PYG{+w}{ }\PYG{n}{U}\PYG{+w}{ }\PYG{o}{*}\PYG{+w}{ }\PYG{n}{S\PYGZus{}trunc}\PYG{+w}{ }\PYG{o}{*}\PYG{+w}{ }\PYG{n}{V}\PYG{o}{\PYGZsq{}}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n+nb}{colormap}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}gray\PYGZdq{}}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n+nb}{image}\PYG{p}{(}\PYG{n+nb}{flipud}\PYG{p}{(}\PYG{n}{Xout}\PYG{p}{));}
+\PYG{+w}{    }\PYG{n+nb}{title}\PYG{p}{(}\PYG{n+nb}{strcat}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}r=\PYGZdq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{n+nb}{string}\PYG{p}{(}\PYG{n}{r}\PYG{p}{)));}
+\PYG{+w}{    }\PYG{n+nb}{saveas}\PYG{p}{(}\PYG{n+nb}{gcf}\PYG{p}{,}\PYG{+w}{ }\PYG{n+nb}{strcat}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}DevamSisodraker\PYGZus{}5a\PYGZus{}\PYGZdq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{n+nb}{string}\PYG{p}{(}\PYG{n}{r}\PYG{p}{),}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}.jpg\PYGZdq{}}\PYG{p}{),}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}jpg\PYGZdq{}}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{hold}\PYG{+w}{ }\PYG{l+s}{off}\PYG{p}{;}
+\PYG{k}{end}
+\end{Verbatim}
