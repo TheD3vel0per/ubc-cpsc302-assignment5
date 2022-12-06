@@ -161,19 +161,23 @@
     \newpage
 
     \begin{solution}{d}
-        Because we already have a value for $\rho_J$, let us substitute it into the $\omega_{opt}$ equation from the textbook.
+        Because we already have a value for $\rho_{Jacobi}$, let us substitute it into the $\omega_{opt}$ equation from the textbook.
         \begin{align*}
             \omega_{opt} &= \frac{2}{1 + \sqrt{1 - \left( \rho_J \right)^2}} \\
             &= \frac{2}{1 + \sqrt{1 - \left( \frac{1}{2} \right)^2}} \\
             &\approx \textbf{1.0718} \\
         \end{align*}
-        Thus we obtain $\omega_{opt} = \textbf{1.0718}$.
+        Thus we obtain $\omega_{opt} \approx \textbf{1.0718}$.
     \end{solution}
 
     \newpage 
 
     \begin{solution}{e}
-        \todo{compare both of the values from d and a then compare}
+        From the textbook we know that $\rho_\text{SOR} = \omega_{opt} - 1$. Thus we know that $\rho_\text{SOR} = 0.0718$. Let us now calculate an asymptotic rate of convergence.
+        \begin{align*}
+            - \log_{10} \left( \rho_\text{SOR} \right) \approx \textbf{1.1439}
+        \end{align*}
+        Let us note that the asymptotic rate of convergence for SOR is around 4 times that of Jacobi's. Thus we can say that SOR uses 4 times fewer iterations than Jacobi when $\omega = \omega_{opt}$ is used for SOR. We can conclude that SOR converges 4 times faster than Jacobi.
     \end{solution}
 
 \end{section}
