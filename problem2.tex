@@ -23,7 +23,7 @@
         \textit{Note:} The line \begin{minted}{matlab}
             saveas(gcf, "DevamSisodraker_2a.jpg", "jpg");
         \end{minted} 
-        was appended to the end of \textbf{File: {\tt J\_GS.m}} to ease the exporting process.
+        was appended to the end of \textbf{{\tt J\_GS.m}} to ease the exporting process.
         \begin{mdframed}
             \footnotesize
             \textbf{File: {\tt J\_GS.m}}
@@ -51,7 +51,17 @@
     \newpage
     
     \begin{solution}{b}
-        \todo{find proof in book}
+        The following is given in the lecture slides.
+        \begin{align*}
+            \lambda_{i,j} = 4 - 2 \left( \cos \frac{i \pi}{n + 1} + \cos \frac{j \pi}{n + 1} \right)
+        \end{align*}
+        Before we continue, let us first recall that the spectral radius of $T$ is given by $\mu_{1,1}$. Thus it follows that $\rho(T) = \mu_{i,i} = \cos \frac{\pi}{n + 1}$. Then let us substitute this $\rho(T)$ into the equation which defines $\omega_{opt}$.
+        \begin{align*}
+            \omega_{opt} &= \frac{2}{1 + \sqrt{1 - \left( \rho(T) \right)^2}} \\
+            &= \frac{2}{1 + \sqrt{1 - \left( \cos \frac{\pi}{n + 1} \right)^2}} & \text{substitution of $\rho(T)$}\\
+            &= \frac{2}{1 + \sqrt{\left( \sin \frac{\pi}{n + 1} \right)^2}} & \text{by Pythagorean trigonometric identity} \\
+            &= \frac{2}{1 + \sin \frac{\pi}{n + 1}} & \\
+        \end{align*}
     \end{solution}
 
     \newpage
